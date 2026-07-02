@@ -180,7 +180,7 @@ export default function Navbar({
               /* Not logged in: show Sign Up button only */
               <button
                 onClick={() => onNavigate('signup')}
-                className="text-sm font-semibold bg-booking-amber hover:bg-booking-accent text-white px-5 py-2 rounded-xl transition-all duration-200"
+                className="text-xs font-semibold bg-white/10 hover:bg-white/15 text-white px-5 py-2.5 rounded-xl transition-all border border-white/20 shadow-[0_4px_12px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.2)] active:scale-[0.98]"
               >
                 Sign Up
               </button>
