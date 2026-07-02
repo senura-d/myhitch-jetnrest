@@ -83,10 +83,15 @@ export default function Navbar({
 
           {/* Actions */}
           <div className="hidden md:flex items-center gap-4">
-            <button className="text-white/80 hover:text-white transition-colors" title="Select Language">
-              <Globe className="h-5 w-5" />
+            <button 
+              className="text-white/80 hover:text-white p-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/25 transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]" 
+              title="Select Language"
+            >
+              <Globe className="h-4 w-4" />
             </button>
-            <span className="text-white/40 text-xs font-semibold tracking-wider">USD</span>
+            <span className="text-white/70 text-xs font-semibold px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+              USD
+            </span>
 
             {isLoggedIn ? (
               /* Logged in: show profile */
@@ -111,7 +116,8 @@ export default function Navbar({
           {/* Mobile menu toggle */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white/90 hover:text-white p-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]"
+            className="md:hidden text-white p-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/15 transition-all shadow-[0_4px_12px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3)] active:scale-95"
+            title="Toggle Menu"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
