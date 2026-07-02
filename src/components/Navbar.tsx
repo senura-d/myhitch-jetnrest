@@ -155,9 +155,9 @@ export default function Navbar({
                   }`}
                 >
                   {isActive && (
-                    <span className="absolute left-0 top-[11px] bottom-[11px] w-1 bg-[#3b82f6] rounded-r-full"></span>
+                    <span className="absolute left-0 top-[11px] bottom-[11px] w-1 bg-white rounded-r-full"></span>
                   )}
-                  <Icon className={`h-5 w-5 ${isActive ? 'text-[#3b82f6]' : 'text-[#8895a7]'}`} />
+                  <Icon className={`h-5 w-5 ${isActive ? 'text-white' : 'text-[#8895a7]'}`} />
                   {item.label}
                 </button>
               );
@@ -171,7 +171,7 @@ export default function Navbar({
               <Globe className="h-5 w-5 text-[#8895a7]" />
               <span className="text-sm font-medium">English (US)</span>
             </div>
-            <span className="text-sm font-semibold text-[#3b82f6]">USD ($)</span>
+            <span className="text-sm font-semibold text-white/80">USD ($)</span>
           </div>
 
           {isLoggedIn ? (
@@ -179,7 +179,7 @@ export default function Navbar({
               onClick={() => { onNavigate('profile'); setMobileMenuOpen(false); }} 
               className="flex items-center gap-3 bg-white/5 border border-white/10 hover:bg-white/15 p-3.5 rounded-xl cursor-pointer transition-all shadow-[0_4px_16px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.1)]"
             >
-              <div className="h-8 w-8 rounded-full bg-[#3b82f6]/20 border border-[#3b82f6]/40 flex items-center justify-center text-xs text-[#3b82f6] font-bold shrink-0">
+              <div className="h-8 w-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xs text-white font-bold shrink-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]">
                 A
               </div>
               <div className="min-w-0 flex-1">
@@ -190,7 +190,7 @@ export default function Navbar({
           ) : (
             <button
               onClick={() => { onNavigate('signup'); setMobileMenuOpen(false); }}
-              className="w-full text-sm font-semibold bg-[#3b82f6]/90 hover:bg-[#3b82f6] text-white py-3.5 rounded-xl transition-all border border-white/20 shadow-[0_4px_16px_rgba(59,130,246,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] active:scale-[0.98]"
+              className="w-full text-sm font-semibold bg-white/10 hover:bg-white/15 text-white py-3.5 rounded-xl transition-all border border-white/20 shadow-[0_4px_16px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.25)] active:scale-[0.98]"
             >
               Sign Up
             </button>
