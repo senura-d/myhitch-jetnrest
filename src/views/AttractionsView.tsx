@@ -57,7 +57,7 @@ const mockAttractions = [
               description: 'Expert local knowledge',
             },
           ]}
-          backgroundImage="/destinations/backpacker-standing-sunrise-viewpoint-ja-bo-village-mae-hong-son-province-thailand.jpg"
+          backgroundImage="/myhitch-jetnrest/destinations/backpacker-standing-sunrise-viewpoint-ja-bo-village-mae-hong-son-province-thailand.jpg"
           onExploreClick={() => {
             const element = document.getElementById('attractions-search');
             element?.scrollIntoView({ behavior: 'smooth' });

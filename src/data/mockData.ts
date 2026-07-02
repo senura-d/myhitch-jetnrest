@@ -33,7 +33,7 @@ export const mockDestinations = [
     name: "Bali",
     country: "Indonesia",
     propertiesCount: 420,
-    image: "/destinations/sigiriya.jpg",
+    image: "/myhitch-jetnrest/destinations/sigiriya.jpg",
     tag: "Tropical Paradise"
   },
   {
@@ -41,7 +41,7 @@ export const mockDestinations = [
     name: "Paris",
     country: "France",
     propertiesCount: 580,
-    image: "/destinations/sunset.jpg",
+    image: "/myhitch-jetnrest/destinations/sunset.jpg",
     tag: "City of Light"
   },
   {
@@ -49,7 +49,7 @@ export const mockDestinations = [
     name: "Tokyo",
     country: "Japan",
     propertiesCount: 960,
-    image: "/destinations/hendrik-cornelissen-jpTT_SAU034-unsplash.jpg",
+    image: "/myhitch-jetnrest/destinations/hendrik-cornelissen-jpTT_SAU034-unsplash.jpg",
     tag: "Modern & Traditional"
   },
   {
@@ -57,7 +57,7 @@ export const mockDestinations = [
     name: "New York",
     country: "USA",
     propertiesCount: 240,
-    image: "/destinations/abdulla-faiz-7yPjauuz858-unsplash.jpg",
+    image: "/myhitch-jetnrest/destinations/abdulla-faiz-7yPjauuz858-unsplash.jpg",
     tag: "The City That Never Sleeps"
   },
   {
@@ -65,7 +65,7 @@ export const mockDestinations = [
     name: "Santorini",
     country: "Greece",
     propertiesCount: 350,
-    image: "/destinations/sarmat-batagov-cuZbrYoimv8-unsplash.jpg",
+    image: "/myhitch-jetnrest/destinations/sarmat-batagov-cuZbrYoimv8-unsplash.jpg",
     tag: "Iconic Sunsets"
   },
   {
@@ -73,7 +73,7 @@ export const mockDestinations = [
     name: "Malé",
     country: "Maldives",
     propertiesCount: 480,
-    image: "/destinations/sebastian-latorre-VqPOeYqzK-M-unsplash.jpg",
+    image: "/myhitch-jetnrest/destinations/sebastian-latorre-VqPOeYqzK-M-unsplash.jpg",
     tag: "Luxury Overwater Villas"
   }
 ];
@@ -368,7 +368,7 @@ export const mockTrendingDeals = [
     title: "Kandalama Eco Sanctuary",
     discount: "15% OFF",
     subtitle: "Forest retreats, cave dining, eco-luxury tours.",
-    image: "/destinations/abdulla-faiz-7yPjauuz858-unsplash.jpg",
+    image: "/myhitch-jetnrest/destinations/abdulla-faiz-7yPjauuz858-unsplash.jpg",
     code: "KANDALAMA15"
   },
   {
@@ -377,7 +377,7 @@ export const mockTrendingDeals = [
     title: "Weligama Coast Romance",
     discount: "Special Package",
     subtitle: "Includes a sunset ocean cruise and private butler.",
-    image: "/destinations/hendrik-cornelissen-jpTT_SAU034-unsplash.jpg",
+    image: "/myhitch-jetnrest/destinations/hendrik-cornelissen-jpTT_SAU034-unsplash.jpg",
     code: "WELIGAMAROMANCE"
   },
   {
@@ -386,7 +386,7 @@ export const mockTrendingDeals = [
     title: "Yala Leopard Safari Journey",
     discount: "Complimentary Safaris",
     subtitle: "Free safari game drives and wilderness dining.",
-    image: "/destinations/sarmat-batagov-cuZbrYoimv8-unsplash.jpg",
+    image: "/myhitch-jetnrest/destinations/sarmat-batagov-cuZbrYoimv8-unsplash.jpg",
     code: "YALASAFARI"
   }
 ];

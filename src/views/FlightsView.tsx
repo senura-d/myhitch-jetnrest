@@ -18,7 +18,7 @@ export default function FlightsView({ onSearch, onBackToHome }: FlightsViewProps
       {/* Hero Section — full-bleed backdrop */}
       <section className="relative min-h-screen flex overflow-hidden">
         <img
-          src="/destinations/airplane-over-tropical-coastline-travel-scenic.jpg"
+          src="/myhitch-jetnrest/destinations/airplane-over-tropical-coastline-travel-scenic.jpg"
           alt="Airplane over tropical coastline"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -76,7 +76,7 @@ export default function FlightsView({ onSearch, onBackToHome }: FlightsViewProps
       <section id="flight-search" className="relative w-full z-10 py-20 md:py-28 overflow-hidden">
         {/* Cloud Backdrop */}
         <img 
-          src="/destinations/serene_sky_banner.png" 
+          src="/myhitch-jetnrest/destinations/serene_sky_banner.png" 
           alt="Clouds backdrop" 
           className="absolute inset-0 w-full h-full object-cover"
         />

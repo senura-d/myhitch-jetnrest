@@ -10,15 +10,15 @@ import BlurText from "./BlurText";
 
 const defaultImages = [
   {
-    src: "/destinations/hendrik-cornelissen-jpTT_SAU034-unsplash.jpg",
+    src: "/myhitch-jetnrest/destinations/hendrik-cornelissen-jpTT_SAU034-unsplash.jpg",
     alt: "Cape Weligama Ocean Villas, Weligama",
   },
   {
-    src: "/destinations/sebastian-latorre-VqPOeYqzK-M-unsplash.jpg",
+    src: "/myhitch-jetnrest/destinations/sebastian-latorre-VqPOeYqzK-M-unsplash.jpg",
     alt: "Ceylon Tea Trails Bungalows, Hatton",
   },
   {
-    src: "/destinations/sigiriya.jpg",
+    src: "/myhitch-jetnrest/destinations/sigiriya.jpg",
     alt: "Water Garden Sigiriya Villas, Sigiriya",
   },
 ];

@@ -101,7 +101,7 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
           secondaryActionText="Member Privilege Deals"
           titleLines={["Explore the World.", "Extraordinary", "Luxury Stays."]}
           backgroundImages={[
-            "/destinations/Viceroy-Bali-Main-Pool-2.avif"
+            "/myhitch-jetnrest/destinations/Viceroy-Bali-Main-Pool-2.avif"
           ]}
           onExploreClick={() => {
             const element = document.getElementById('home-search');
@@ -194,7 +194,7 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
       <div className="relative w-full z-10 overflow-hidden min-h-[520px]">
         {/* Full-bleed sunset backdrop */}
         <img
-          src="/destinations/sunset.jpg"
+          src="/myhitch-jetnrest/destinations/sunset.jpg"
           alt="Golden sunset"
           className="absolute inset-0 w-full h-full object-cover object-center scale-105"
         />
@@ -281,7 +281,7 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
       <div id="home-landscape" className="relative w-full z-10 h-[85vh] min-h-[520px]">
         {/* Full-bleed image */}
         <img
-          src="/destinations/sb-bandara-1GJKxIkSR0E-unsplash.jpg"
+          src="/myhitch-jetnrest/destinations/sb-bandara-1GJKxIkSR0E-unsplash.jpg"
           alt="Elephants bathing in the river"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -369,7 +369,7 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
       <section id="home-deals" className="border-t border-b border-white/5 py-32 md:py-48 text-white relative z-10 overflow-hidden">
         {/* Backdrop image */}
         <img
-          src="/destinations/sebastian-latorre-VqPOeYqzK-M-unsplash.jpg"
+          src="/myhitch-jetnrest/destinations/sebastian-latorre-VqPOeYqzK-M-unsplash.jpg"
           alt="Highland tea estate"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -451,7 +451,7 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
           {/* Map image — right (white background blended out) */}
           <div className="flex justify-center md:justify-end">
             <img
-              src="/destinations/world-map.png"
+              src="/myhitch-jetnrest/destinations/world-map.png"
               alt="World Map"
               className="w-full max-w-md h-auto object-contain mix-blend-multiply"
             />
@@ -463,7 +463,7 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
       <section id="home-reviews" className="w-full py-32 md:py-48 relative z-10 overflow-hidden">
         {/* Backdrop image */}
         <img
-          src="/destinations/sarmat-batagov-cuZbrYoimv8-unsplash.jpg"
+          src="/myhitch-jetnrest/destinations/sarmat-batagov-cuZbrYoimv8-unsplash.jpg"
           alt="Tropical coastline"
           className="absolute inset-0 w-full h-full object-cover"
         />

@@ -5,9 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const backdrops = [
-  { id: "home-hero", image: "/destinations/sigiriya.jpg" },
-  { id: "home-search", image: "/destinations/sunset.jpg" },
-  { id: "home-deals", image: "/destinations/sarmat-batagov-cuZbrYoimv8-unsplash.jpg" },
+  { id: "home-hero", image: "/myhitch-jetnrest/destinations/sigiriya.jpg" },
+  { id: "home-search", image: "/myhitch-jetnrest/destinations/sunset.jpg" },
+  { id: "home-deals", image: "/myhitch-jetnrest/destinations/sarmat-batagov-cuZbrYoimv8-unsplash.jpg" },
 ];
 
 export default function ScrollSequence() {

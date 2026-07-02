@@ -42,7 +42,7 @@ export default function CarsView({ onBackToHome, onRequireAuth }: CarsViewProps)
             description: 'Go as far as you want',
           },
         ]}
-        backgroundImage="/destinations/Toyota_Avalon.png"
+        backgroundImage="/myhitch-jetnrest/destinations/Toyota_Avalon.png"
         onExploreClick={() => {
           const element = document.getElementById('cars-search');
           element?.scrollIntoView({ behavior: 'smooth' });
@@ -160,7 +160,7 @@ export default function CarsView({ onBackToHome, onRequireAuth }: CarsViewProps)
           <section className="relative w-full py-20 md:py-28 overflow-hidden">
             {/* Backdrop Image */}
             <img 
-              src="/destinations/desert_straight_road_backdrop.png" 
+              src="/myhitch-jetnrest/destinations/desert_straight_road_backdrop.png" 
               alt="Straight desert road" 
               className="absolute inset-0 w-full h-full object-cover"
             />

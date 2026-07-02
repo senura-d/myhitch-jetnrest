@@ -53,7 +53,7 @@ export default function StaysView({ stays, onSearch, onSelectStay, onBackToHome 
             description: 'Prime spots across\nthe globe',
           },
         ]}
-        backgroundImage="/destinations/Ahu Bay public spaces - Large1-Ahu Bay-feb23-pr-global.webp"
+        backgroundImage="/myhitch-jetnrest/destinations/Ahu Bay public spaces - Large1-Ahu Bay-feb23-pr-global.webp"
         onExploreClick={() => {
           const element = document.getElementById('stays-search');
           element?.scrollIntoView({ behavior: 'smooth' });
