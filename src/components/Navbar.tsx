@@ -111,7 +111,7 @@ export default function Navbar({
               </button>
               
               {langDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 rounded-xl bg-[#0c0f1d]/90 backdrop-blur-xl border border-white/10 p-2 shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] z-50 flex flex-col gap-1">
+                <div className="absolute right-0 mt-2 w-48 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 p-2 shadow-[0_10px_30px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] z-50 flex flex-col gap-1">
                   {['English (US)', 'Deutsch (DE)', 'Español (ES)', 'Français (FR)', 'Sinhalese (LK)'].map((lang) => (
                     <button
                       key={lang}
@@ -121,8 +121,8 @@ export default function Navbar({
                       }}
                       className={`text-left text-xs font-semibold px-3 py-2 rounded-lg transition-colors ${
                         currentLanguage === lang 
-                          ? 'bg-white/15 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' 
-                          : 'text-[#98a2b3] hover:text-white hover:bg-white/5'
+                          ? 'bg-white/25 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] border border-white/10' 
+                          : 'text-white/80 hover:text-white hover:bg-white/10 border border-transparent'
                       }`}
                     >
                       {lang}
@@ -146,7 +146,7 @@ export default function Navbar({
               </button>
 
               {currDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-40 rounded-xl bg-[#0c0f1d]/90 backdrop-blur-xl border border-white/10 p-2 shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] z-50 flex flex-col gap-1">
+                <div className="absolute right-0 mt-2 w-40 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 p-2 shadow-[0_10px_30px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.25)] z-50 flex flex-col gap-1">
                   {['USD ($)', 'EUR (€)', 'GBP (£)', 'LKR (Rs)', 'JPY (¥)'].map((curr) => (
                     <button
                       key={curr}
@@ -156,8 +156,8 @@ export default function Navbar({
                       }}
                       className={`text-left text-xs font-semibold px-3 py-2 rounded-lg transition-colors ${
                         currentCurrency === curr.split(' ')[0]
-                          ? 'bg-white/15 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' 
-                          : 'text-[#98a2b3] hover:text-white hover:bg-white/5'
+                          ? 'bg-white/25 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] border border-white/10' 
+                          : 'text-white/80 hover:text-white hover:bg-white/10 border border-transparent'
                       }`}
                     >
                       {curr}
