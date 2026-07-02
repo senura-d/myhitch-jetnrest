@@ -6,7 +6,7 @@ export const mockTestimonials: Review[] = [
     userName: "Charlotte Bennett",
     userCountry: "United Kingdom",
     rating: 9.8,
-    comment: "The Ceylon hospitality was extraordinary. From the fresh king coconuts on arrival to the custom-tailored tea tasting sessions, every detail spoke of absolute luxury.",
+    comment: "The hospitality was extraordinary. From the welcome drinks on arrival to the custom-tailored tasting sessions, every detail spoke of absolute luxury.",
     date: "June 14, 2026"
   },
   {
@@ -14,7 +14,7 @@ export const mockTestimonials: Review[] = [
     userName: "Alexandre Dubois",
     userCountry: "France",
     rating: 9.6,
-    comment: "Heritance Kandalama was a magnificent retreat. The pool built directly into the rock face was breathtaking, and seeing monkeys play in the trees from our balcony was magical.",
+    comment: "Desa Potato Head was a magnificent retreat. The sustainable design was breathtaking, and the ocean views from our balcony were magical.",
     date: "May 28, 2026"
   },
   {
@@ -22,7 +22,7 @@ export const mockTestimonials: Review[] = [
     userName: "Sophia Martinez",
     userCountry: "United States",
     rating: 9.5,
-    comment: "Wild Coast Lodge offered a spectacular safari experience. The tented domes are beautiful, and waking up to elephant sightings near the ocean was unbelievable.",
+    comment: "The Plaza offered a spectacular experience. The elegant rooms are beautiful, and waking up to Central Park views was unbelievable.",
     date: "June 22, 2026"
   }
 ];
@@ -30,69 +30,69 @@ export const mockTestimonials: Review[] = [
 export const mockDestinations = [
   {
     id: "dest-1",
-    name: "Sigiriya Lion Rock",
-    country: "Sri Lanka",
-    propertiesCount: 42,
+    name: "Bali",
+    country: "Indonesia",
+    propertiesCount: 420,
     image: "/destinations/sigiriya.jpg",
-    tag: "Romantic Forest Fortress"
+    tag: "Tropical Paradise"
   },
   {
     id: "dest-2",
-    name: "Ella Tea Hills",
-    country: "Sri Lanka",
-    propertiesCount: 58,
+    name: "Paris",
+    country: "France",
+    propertiesCount: 580,
     image: "/destinations/sunset.jpg",
-    tag: "Misty Mountain Escapes"
+    tag: "City of Light"
   },
   {
     id: "dest-3",
-    name: "Galle Coastline",
-    country: "Sri Lanka",
-    propertiesCount: 96,
+    name: "Tokyo",
+    country: "Japan",
+    propertiesCount: 960,
     image: "/destinations/hendrik-cornelissen-jpTT_SAU034-unsplash.jpg",
-    tag: "Colonial Lighthouse Fort"
+    tag: "Modern & Traditional"
   },
   {
     id: "dest-4",
-    name: "Kandalama Forest",
-    country: "Sri Lanka",
-    propertiesCount: 24,
+    name: "New York",
+    country: "USA",
+    propertiesCount: 240,
     image: "/destinations/abdulla-faiz-7yPjauuz858-unsplash.jpg",
-    tag: "Eco-Luxury Cliffside Stays"
+    tag: "The City That Never Sleeps"
   },
   {
     id: "dest-5",
-    name: "Yala Wilderness",
-    country: "Sri Lanka",
-    propertiesCount: 35,
+    name: "Santorini",
+    country: "Greece",
+    propertiesCount: 350,
     image: "/destinations/sarmat-batagov-cuZbrYoimv8-unsplash.jpg",
-    tag: "Wildlife Leopard Safaris"
+    tag: "Iconic Sunsets"
   },
   {
     id: "dest-6",
-    name: "Nuwara Eliya Hills",
-    country: "Sri Lanka",
-    propertiesCount: 48,
+    name: "Malé",
+    country: "Maldives",
+    propertiesCount: 480,
     image: "/destinations/sebastian-latorre-VqPOeYqzK-M-unsplash.jpg",
-    tag: "Colonial Tea Bungalows"
+    tag: "Luxury Overwater Villas"
   }
 ];
 
 export const mockStays: Stay[] = [
   {
     id: "stay-1",
-    name: "Heritance Kandalama",
+    name: "Desa Potato Head",
     type: "hotel",
     rating: 9.7,
     ratingCount: 312,
     ratingLabel: "Exceptional",
-    location: "Kandalama Road, Dambulla",
-    city: "Kandalama Forest",
-    distance: "In the heart of Sigiriya Forest",
+    location: "Seminyak, Bali",
+    city: "Bali",
+    distance: "Beachfront eco-resort",
     images: [
-      "/destinations/abdulla-faiz-7yPjauuz858-unsplash.jpg",
-      "/destinations/sigiriya.jpg",
-      "/destinations/sunset.jpg"
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80",
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=80",
+      "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1200&q=80"
     ],
     description: "Designed by legendary architect Geoffrey Bawa, Heritance Kandalama is an eco-luxury resort built directly into a forest cliffside. Vines drape the building, blending it seamlessly into the jungle. It features 3 infinity pools overlooking the Kandalama Lake, cave dining experiences, and direct encounters with friendly monkeys and exotic birds. A masterpiece of architectural eco-hospitality.",
     pricePerNight: 350,
@@ -137,18 +137,18 @@ export const mockStays: Stay[] = [
   },
   {
     id: "stay-2",
-    name: "Cape Weligama",
+    name: "Marina Bay Sands",
     type: "resort",
     rating: 9.9,
     ratingCount: 184,
     ratingLabel: "Exceptional",
-    location: "Abimanagama Road, Weligama",
-    city: "Galle Coastline",
-    distance: "Cliffside overlooking Weligama Bay",
+    location: "Bayfront Avenue, Singapore",
+    city: "Singapore",
+    distance: "Downtown Core",
     images: [
-      "/destinations/hendrik-cornelissen-jpTT_SAU034-unsplash.jpg",
-      "/destinations/abdulla-faiz-7yPjauuz858-unsplash.jpg",
-      "/destinations/sebastian-latorre-VqPOeYqzK-M-unsplash.jpg"
+      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=80",
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=80",
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1200&q=80"
     ],
     description: "Cape Weligama is a sanctuary of unparalleled luxury set on a dramatic cliffside overlooking the Indian Ocean. The resort features private villa residences constructed from local stone, each with its own private pool and ocean view terrace. Guests enjoy a massive crescent-shaped infinity pool, cliffside dining, whale watching excursions, and custom Ayurvedic spa treatments.",
     pricePerNight: 750,
@@ -185,18 +185,18 @@ export const mockStays: Stay[] = [
   },
   {
     id: "stay-3",
-    name: "Wild Coast Tented Lodge",
+    name: "The Plaza Hotel",
     type: "resort",
     rating: 9.6,
     ratingCount: 142,
     ratingLabel: "Wonderful",
-    location: "Palatupana, Yala National Park",
-    city: "Yala Wilderness",
-    distance: "Bordering Yala National Park",
+    location: "Fifth Avenue, New York",
+    city: "New York",
+    distance: "Bordering Central Park",
     images: [
-      "/destinations/sarmat-batagov-cuZbrYoimv8-unsplash.jpg",
-      "/destinations/sigiriya.jpg",
-      "/destinations/sunset.jpg"
+      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1200&q=80",
+      "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=1200&q=80",
+      "https://images.unsplash.com/photo-1559599189-fe84dea4eb79?w=1200&q=80"
     ],
     description: "Wild Coast Tented Lodge is a luxury wilderness camp situated where the jungle meets the pristine blue beach of Yala. The lodge features organic cocoon-style tents shaped like boulders, blending in with Yala's rocky landscape. Offers daily private leopard safaris led by expert rangers, wilderness dining under the stars, and free-form swimming pools overlooking the ocean.",
     pricePerNight: 820,
@@ -233,17 +233,18 @@ export const mockStays: Stay[] = [
   },
   {
     id: "stay-4",
-    name: "Ceylon Tea Trails",
+    name: "Ritz Paris",
     type: "hotel",
     rating: 9.8,
     ratingCount: 220,
     ratingLabel: "Exceptional",
-    location: "Hatton, Central Highlands",
-    city: "Nuwara Eliya Hills",
-    distance: "Set in active tea estates",
+    location: "Place Vendôme, Paris",
+    city: "Paris",
+    distance: "Heart of Paris",
     images: [
-      "/destinations/sebastian-latorre-VqPOeYqzK-M-unsplash.jpg",
-      "/destinations/hendrik-cornelissen-jpTT_SAU034-unsplash.jpg"
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1200&q=80",
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80"
     ],
     description: "Ceylon Tea Trails is the world's first tea bungalow resort, perched at an altitude of 1,250 meters in Sri Lanka's panoramic tea country. Comprising five historic, colonial-era planter bungalows, the resort offers private planter service, gourmet dining, tea plantation walks, and breathtaking mountain vistas. Pure historic elegance.",
     pricePerNight: 650,
@@ -280,17 +281,18 @@ export const mockStays: Stay[] = [
   },
   {
     id: "stay-5",
-    name: "Water Garden Sigiriya",
+    name: "Aman Tokyo",
     type: "hotel",
     rating: 9.5,
     ratingCount: 154,
     ratingLabel: "Wonderful",
-    location: "Sigiriya, Central Province",
-    city: "Sigiriya Lion Rock",
-    distance: "Shadows of Sigiriya Fortress",
+    location: "Otemachi Tower, Tokyo",
+    city: "Tokyo",
+    distance: "Near Imperial Palace",
     images: [
-      "/destinations/sigiriya.jpg",
-      "/destinations/sunset.jpg"
+      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1200&q=80",
+      "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=1200&q=80",
+      "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=1200&q=80"
     ],
     description: "Water Garden Sigiriya is a boutique luxury hotel featuring water villas modeled after the 2,000-year-old water gardens of Sigiriya Fortress. Located in a scenic paddy field setting with lions rocks rising on the horizon, it offers luxury plunge pools, bird watching tours, and modern minimalist design.",
     pricePerNight: 450,
@@ -319,17 +321,18 @@ export const mockStays: Stay[] = [
   },
   {
     id: "stay-6",
-    name: "98 Acres Resort & Spa",
+    name: "Katikies",
     type: "resort",
     rating: 9.4,
     ratingCount: 210,
     ratingLabel: "Wonderful",
-    location: "Ella-Passara Road, Ella",
-    city: "Ella Tea Hills",
-    distance: "Beside Little Adams Peak",
+    location: "Oia, Santorini",
+    city: "Santorini",
+    distance: "Caldera edge",
     images: [
-      "/destinations/sunset.jpg",
-      "/destinations/abdulla-faiz-7yPjauuz858-unsplash.jpg"
+      "https://images.unsplash.com/photo-1566296314736-6eaac1ca0cb9?w=1200&q=80",
+      "https://images.unsplash.com/photo-1582610116397-edb318620f90?w=1200&q=80",
+      "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80"
     ],
     description: "98 Acres Resort & Spa is an elegant, eco-friendly hotel located on a scenic 98-acre tea estate in Ella. The resort features chalets constructed from discarded shipping containers and recycled wood, offering panoramic views of Ella Gap and Little Adams Peak. Luxury spa treatments and organic dining are on offer.",
     pricePerNight: 390,

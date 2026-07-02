@@ -52,13 +52,13 @@ export default function SearchForm({ onSearch, destinations }: SearchFormProps) 
 
   // Shared input styling — transparent frosted glass with readable dark text
   const inputClass =
-    'w-full h-10 pl-10 pr-3 bg-white/50 border border-slate-200 rounded-lg text-sm font-medium text-black placeholder-slate-400 focus:outline-none focus:bg-white/80 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-300';
-  const labelClass = 'block text-[10px] font-semibold text-black uppercase tracking-wider mb-1 ml-1';
+    'w-full h-12 pl-11 pr-3 bg-white/60 border border-slate-300/50 rounded-xl text-sm font-medium text-black placeholder-slate-400 focus:outline-none focus:bg-white/90 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all duration-300';
+  const labelClass = 'block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5 ml-1';
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full bg-white/40 backdrop-blur-2xl rounded-xl shadow-[0_8px_40px_rgba(15,23,42,0.08)] border border-white/70 p-3 grid grid-cols-1 md:grid-cols-12 gap-3 items-end animate-fadeIn"
+      className="w-full bg-slate-200/40 backdrop-blur-2xl rounded-2xl shadow-[0_8px_40px_rgba(15,23,42,0.06)] border border-slate-300/40 p-4 grid grid-cols-1 md:grid-cols-12 gap-4 items-end animate-fadeIn"
     >
       {/* Destination Selector */}
       <div ref={destRef} className="col-span-1 md:col-span-4 relative group">
@@ -137,7 +137,7 @@ export default function SearchForm({ onSearch, destinations }: SearchFormProps) 
         <button
           type="button"
           onClick={() => setShowGuestDropdown(!showGuestDropdown)}
-          className="w-full h-10 pl-10 pr-3 bg-white/50 border border-slate-200 rounded-lg text-sm font-medium text-black flex items-center hover:bg-white/80 transition-colors focus:outline-none relative"
+          className="w-full h-12 pl-11 pr-3 bg-white/50 border border-slate-200 rounded-xl text-sm font-medium text-black flex items-center hover:bg-white/80 transition-colors focus:outline-none relative"
         >
           <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-blue-600" />
           <span className="truncate">{guests} Guests, {rooms} Room{rooms > 1 ? 's' : ''}</span>
@@ -219,7 +219,7 @@ export default function SearchForm({ onSearch, destinations }: SearchFormProps) 
       <div className="col-span-1 md:col-span-2">
         <button
           type="submit"
-          className="w-full h-10 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2"
+          className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm rounded-xl transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2"
         >
           <Search className="h-4 w-4" />
           <span>Search</span>

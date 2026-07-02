@@ -1,6 +1,6 @@
 import { motion, type Variants } from 'framer-motion'; // Using framer-motion as it is standard and provides the same motion components
 import { Armchair, Monitor, PlaneTakeoff } from 'lucide-react';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ScrollSequence from './ScrollSequence';
 import BlurText from './BlurText';
 
@@ -16,11 +16,12 @@ export interface Hero33Props {
         description: string;
     }[];
     backgroundImage?: string;
+    backgroundImages?: string[];
     onExploreClick?: () => void;
 }
 
 export default function Hero33({
-  logoText = 'Booking.com',
+  logoText = 'MYHITCH JETNREST',
   navItems = ['Stays', 'Flights', 'Car rentals', 'Attractions'],
   primaryActionText = 'Explore Stays',
   secondaryActionText = 'Exclusive Offers',
@@ -37,9 +38,22 @@ export default function Hero33({
       description: 'Marvel at pristine horizons from\nyour balcony',
     },
   ],
-  backgroundImage = '/destinations/sigiriya.jpg',
+  backgroundImage,
+  backgroundImages,
   onExploreClick,
 }: Hero33Props) {
+  const images = backgroundImages?.length ? backgroundImages : (backgroundImage ? [backgroundImage] : []);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length > 1) {
+      const timer = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      }, 5000);
+      return () => clearInterval(timer);
+    }
+  }, [images.length]);
+
   // Nav: quick fade+blur slide
   const navVariants: Variants = {
     hidden: { opacity: 0, y: -16, filter: 'blur(6px)' },
@@ -117,16 +131,21 @@ export default function Hero33({
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-transparent font-sans antialiased selection:bg-white/20">
 
-      {/* Background Image */}
-      {backgroundImage && (
-        <div className="absolute inset-0 z-0 select-none pointer-events-none">
+      {/* Background Images */}
+      {images.map((src, idx) => (
+        <div 
+          key={src}
+          className={`absolute inset-0 z-0 select-none pointer-events-none transition-opacity duration-1000 ${
+            idx === currentImageIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
           <img 
-            src={backgroundImage} 
-            alt="Sigiriya Lion Rock" 
+            src={src} 
+            alt="Hero background" 
             className="h-full w-full object-cover"
           />
         </div>
-      )}
+      ))}
 
       {/* Content Container */}
       <div className="relative z-10 flex min-h-screen flex-col pl-8 pr-6 pt-24 pb-14 md:pb-16 md:pl-16 lg:pl-24 justify-between">

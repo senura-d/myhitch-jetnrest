@@ -31,7 +31,7 @@ export default function AboutView({ onBackToHome }: AboutViewProps) {
           <h1 className="mt-4 text-4xl md:text-6xl font-bold text-white tracking-tight">Travel, beautifully crafted.</h1>
           <p className="mt-6 text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
             We began with a simple belief: that booking a journey should feel as inspiring as the journey itself.
-            From the misty hills of Ella to the golden coasts of Mirissa, we connect travelers with the soul of Sri Lanka
+            From the misty hills of the Alps to the golden coasts of the Maldives, we connect travelers with the soul of the world
             and the world's most extraordinary destinations.
           </p>
         </div>

@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FlightSearchForm from '../components/FlightSearchForm';
-import TravelDoodles from '../components/TravelDoodles';
-import { Compass, Briefcase, PiggyBank, ShieldCheck, MapPin, ArrowRight, Play } from 'lucide-react';
+import FlightResultsView, { FlightQuery } from './FlightResultsView';
+import { Compass, Briefcase, PiggyBank, ShieldCheck, MapPin, ArrowRight, Play, Plane } from 'lucide-react';
 import { mockDestinations } from '../data/mockData';
 
 interface FlightsViewProps {
+  onSearch: (query: FlightQuery) => void;
   onBackToHome: () => void;
 }
 
-export default function FlightsView({ onBackToHome }: FlightsViewProps) {
+export default function FlightsView({ onSearch, onBackToHome }: FlightsViewProps) {
   const destinationNames = mockDestinations.map(d => `${d.name}, ${d.country}`);
 
   return (
@@ -56,24 +57,68 @@ export default function FlightsView({ onBackToHome }: FlightsViewProps) {
         </div>
       </section>
 
-      {/* Section 2: Search + Liquid Glass Features — white backdrop */}
-      <section id="flight-search" className="bg-white w-full relative z-10 py-20 md:py-28 overflow-hidden">
-        <TravelDoodles />
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
+      {/* Intro — white section with text */}
+      <section className="bg-white w-full relative z-10 pt-20 md:pt-28 pb-20 md:pb-24">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <span className="inline-block text-[11px] font-extrabold text-blue-600 uppercase tracking-[0.3em] mb-3">Fly Anywhere</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 tracking-tight leading-tight">
+            Your Journey Begins Here
+          </h2>
+          <p className="mt-5 text-base md:text-lg text-slate-500 leading-relaxed">
+            Compare fares across hundreds of airlines and unlock exclusive member deals. From quick getaways to
+            once-in-a-lifetime adventures, we make booking your next flight effortless, affordable, and completely
+            stress-free.
+          </p>
+        </div>
+      </section>
 
+      {/* Section 2: Search with Cloud Backdrop */}
+      <section id="flight-search" className="relative w-full z-10 py-20 md:py-28 overflow-hidden">
+        {/* Cloud Backdrop */}
+        <img 
+          src="/destinations/serene_sky_banner.png" 
+          alt="Clouds backdrop" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Soft overlay to ensure text pops without washing it out */}
+        <div className="absolute inset-0 bg-white/30" />
+
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
           {/* Heading */}
           <div className="text-center mb-12">
-            <span className="inline-block text-[11px] font-extrabold text-blue-600 uppercase tracking-[0.3em] mb-3">
+            <span className="inline-block text-[11px] font-extrabold text-blue-700 uppercase tracking-[0.3em] mb-3">
               Book Your Flight
             </span>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-blue-900 tracking-tight leading-tight">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 tracking-tight leading-tight drop-shadow-sm">
               Search Global Destinations
             </h2>
-            <div className="mt-4 mx-auto w-14 h-0.5 bg-blue-400 rounded-full" />
+            <div className="mt-4 mx-auto w-14 h-0.5 bg-blue-500 rounded-full" />
           </div>
 
-          {/* Search Form */}
-          <FlightSearchForm destinations={destinationNames} />
+          {/* Search Form Highlight Container */}
+          <div className="relative">
+            {/* Highlighted Card */}
+            <div className="relative p-6 md:p-8 bg-white/80 backdrop-blur-2xl border-2 border-white rounded-[2rem] shadow-[0_25px_50px_-12px_rgba(30,58,138,0.3)]">
+              {/* Highlight Badge */}
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-xs font-bold uppercase tracking-widest py-1.5 px-6 rounded-full shadow-lg border border-blue-400/50">
+                Primary Flight Search
+              </div>
+              <FlightSearchForm destinations={destinationNames} onSearch={onSearch} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider Section */}
+      <section className="bg-white w-full py-16 md:py-24 text-center px-6">
+        <div className="max-w-3xl mx-auto flex flex-col items-center">
+          <Plane className="h-8 w-8 text-blue-400 mb-6" />
+          <h2 className="text-3xl md:text-4xl font-serif font-light text-slate-900 tracking-tight leading-relaxed">
+            "Experience the seamless joy of travel from the moment you start searching."
+          </h2>
+          <p className="mt-6 text-sm md:text-base text-slate-500 max-w-lg leading-relaxed">
+            Our intelligent booking engine and curated selections ensure that finding the perfect flight is just as relaxing as the journey itself.
+          </p>
         </div>
       </section>
 
@@ -102,9 +147,9 @@ export default function FlightsView({ onBackToHome }: FlightsViewProps) {
               return (
                 <div
                   key={c.title}
-                  className="relative rounded-3xl p-7 flex flex-col gap-4 bg-white/10 backdrop-blur-xl border border-white/20 shadow-luxury transition-all duration-500 hover:-translate-y-1 hover:bg-white/15"
+                  className="relative rounded-3xl p-7 flex flex-col gap-4 bg-slate-200/25 backdrop-blur-xl border border-white/30 shadow-luxury transition-all duration-500 hover:-translate-y-1 hover:bg-slate-200/35"
                 >
-                  <div className="h-12 w-12 rounded-2xl flex items-center justify-center bg-white/15 border border-white/30">
+                  <div className="h-12 w-12 rounded-2xl flex items-center justify-center bg-white/20 border border-white/40">
                     <Icon className="h-5 w-5 text-white" strokeWidth={2} />
                   </div>
                   <div>

@@ -223,13 +223,9 @@ function Marker({
         >
           <div
             className={cn(
-              "cursor-pointer overflow-hidden rounded-full bg-neutral-900 shadow-lg transition-transform duration-200",
+              "cursor-pointer overflow-hidden rounded-full bg-neutral-900 shadow-lg transition-transform duration-200 w-2 h-2",
               hovered && "scale-125 shadow-xl ring-1 ring-white/50",
             )}
-            style={{
-              width: "8px",
-              height: "8px",
-            }}
             onMouseEnter={handlePointerEnter}
             onMouseLeave={handlePointerLeave}
             onClick={handleClick}

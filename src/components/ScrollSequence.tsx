@@ -88,8 +88,7 @@ export default function ScrollSequence() {
       {backdrops.map((backdrop, idx) => (
         <div
           key={backdrop.id}
-          className="backdrop-img-wrapper absolute inset-0 h-full w-full pointer-events-none"
-          style={{ opacity: idx === 0 ? 1 : 0 }}
+          className={`backdrop-img-wrapper absolute inset-0 h-full w-full pointer-events-none ${idx === 0 ? 'opacity-100' : 'opacity-0'}`}
         >
           <img
             src={backdrop.image}

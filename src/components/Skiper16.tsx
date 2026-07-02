@@ -5,31 +5,31 @@ import React, { useRef } from "react";
 const experiences = [
   {
     title: "Overwater Seclusion, Maldives",
-    src: "/destinations/srilanka_unsplash_2.jpg",
+    src: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1200&q=80",
     tag: "Soneva Jani",
     description: "Slide directly into the turquoise lagoon from your private water retreat with a retractable roof."
   },
   {
     title: "Cliffside Frescoes, Ravello",
-    src: "/destinations/srilanka_unsplash_3.jpg",
+    src: "https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=1200&q=80",
     tag: "Belmond Hotel Caruso",
     description: "Float in an infinity pool suspended 350 meters above the Amalfi Coast in an 11th-century palace."
   },
   {
     title: "Zen Temple Retreats, Kyoto",
-    src: "/destinations/srilanka_unsplash_4.jpg",
+    src: "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200&q=80",
     tag: "Sowaka Ryokan",
     description: "Relax on tatami mats overlooking private courtyard gardens in a historic Gion townhouse."
   },
   {
     title: "Alpine Fireside Suites, Swiss Alps",
-    src: "/destinations/srilanka_unsplash_5.jpg",
+    src: "https://images.unsplash.com/photo-1551524559-8af4e6624178?w=1200&q=80",
     tag: "The Chedi Andermatt",
     description: "Unwind by double-sided fireplaces surrounded by natural stone and warm Swiss pine wood."
   },
   {
     title: "Caldera Horizons, Santorini",
-    src: "/destinations/srilanka_unsplash_6.jpg",
+    src: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1200&q=80",
     tag: "Grace Hotel",
     description: "Indulge in volcanic sunset views from your private heated plunge pool carved into the cliffs."
   }

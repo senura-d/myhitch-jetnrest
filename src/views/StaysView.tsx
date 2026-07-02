@@ -1,8 +1,26 @@
 import React from 'react';
 import { MapPin, Star, ArrowRight } from 'lucide-react';
+import Hero33 from '../components/Hero33';
 import SearchForm from '../components/SearchForm';
+import Skiper51 from '../components/Skiper51';
 import { Stay, SearchQuery } from '../types';
 import { mockDestinations } from '../data/mockData';
+import { Building2, Globe, ArrowUpRight, Heart } from 'lucide-react';
+import {
+  CutoutCard,
+  CutoutCardAction,
+  CutoutCardContent,
+  CutoutCardFooter,
+  CutoutCardImage,
+  CutoutCardInsetLabel,
+  CutoutCardMedia,
+  CutoutCardOverlay,
+  CutoutCardPin,
+  cutoutCardSurfaceClassName,
+  CutoutCorner
+} from '../components/ui/cutout-card';
+import { cn } from '../lib/utils';
+import BlurText from '../components/BlurText';
 
 interface StaysViewProps {
   stays: Stay[];
@@ -15,61 +33,121 @@ export default function StaysView({ stays, onSearch, onSelectStay, onBackToHome 
   const destinationNames = mockDestinations.map((d) => `${d.name}, ${d.country}`);
 
   return (
-    <div className="bg-booking-dark min-h-screen pt-28 pb-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Header */}
-        <div className="mb-8">
-          <button onClick={onBackToHome} className="text-sm text-white/40 hover:text-white transition-colors mb-4">← Back to home</button>
-          <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight font-serif">Luxury Stays in Sri Lanka</h1>
-          <p className="mt-3 text-white/50 max-w-xl">
-            Browse {stays.length} handpicked resorts, villas and boutique retreats — book with our best price guarantee.
-          </p>
+    <div className="bg-transparent min-h-screen relative overflow-x-hidden">
+      
+      {/* Hero Section */}
+      <Hero33 
+        logoText="MYHITCH JETNREST"
+        primaryActionText="Find Stays"
+        secondaryActionText="Manage Bookings"
+        titleLines={["Exceptional Stays,", "Unforgettable", "Memories."]}
+        features={[
+          {
+            icon: Building2,
+            title: 'Luxury Resorts',
+            description: 'Handpicked premium\naccommodations',
+          },
+          {
+            icon: Globe,
+            title: 'Best Locations',
+            description: 'Prime spots across\nthe globe',
+          },
+        ]}
+        backgroundImage="/destinations/Ahu Bay public spaces - Large1-Ahu Bay-feb23-pr-global.webp"
+        onExploreClick={() => {
+          const element = document.getElementById('stays-search');
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }}
+      />
+
+      {/* Search Section — separate white section */}
+      <section id="stays-search" className="bg-white w-full relative z-20 py-16 md:py-20">
+        <div className="max-w-5xl mx-auto px-6 md:px-12">
+          <div className="text-center mb-8">
+            <span className="inline-block text-[11px] font-extrabold text-blue-600 uppercase tracking-[0.3em] mb-3">Plan Your Stay</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 tracking-tight leading-tight">Find Your Perfect Stay</h2>
+            <div className="mt-4 mx-auto w-14 h-0.5 bg-blue-400 rounded-full" />
+          </div>
+          <SearchForm onSearch={onSearch} destinations={destinationNames} />
         </div>
+      </section>
 
-        {/* Search */}
-        <SearchForm onSearch={onSearch} destinations={destinationNames} />
+      {/* Trending Destinations — full-section image slider */}
+      <Skiper51
+        title="Inspire Your Next Trip"
+        subtitle="Trending Destinations"
+        images={mockDestinations.map((d) => ({ src: d.image, alt: `${d.name}, ${d.country}` }))}
+      />
 
-        {/* Grid */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div id="stays-grid" className="bg-booking-slate py-16 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-8 flex items-center justify-between">
+            <div>
+              <h2 className="text-3xl font-bold text-booking-navy tracking-tight">Luxury Stays Worldwide</h2>
+              <p className="mt-2 text-slate-500">
+                Browse {stays.length} handpicked resorts, villas and boutique retreats
+              </p>
+            </div>
+            <button onClick={onBackToHome} className="text-sm font-semibold text-booking-blue hover:text-blue-700 transition-colors">← Back to home</button>
+          </div>
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {stays.map((stay) => (
-            <button
+            <div
               key={stay.id}
-              type="button"
+              className="group cursor-pointer overflow-hidden rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300"
               onClick={() => onSelectStay(stay)}
-              className="group text-left bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-booking-amber/40 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="h-52 overflow-hidden relative">
-                <img
-                  src={stay.images[0]}
-                  alt={stay.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+              <div className="relative h-56">
+                <img src={stay.images[0]} alt={stay.name} className="w-full h-full object-cover" />
+                <button 
+                  aria-label="Favorite"
+                  className="absolute top-3 right-3 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // Favorite logic can go here
+                  }}
+                >
+                  <Heart className="h-5 w-5 text-gray-700" />
+                </button>
                 {stay.badge && (
-                  <span className="absolute top-3 left-3 bg-booking-amber text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                  <span className="absolute top-3 left-3 bg-booking-amber text-white text-[10px] font-bold px-2.5 py-1 rounded-sm uppercase tracking-wider">
                     {stay.badge}
                   </span>
                 )}
-                <span className="absolute top-3 right-3 bg-booking-dark/80 backdrop-blur-sm text-white text-xs font-semibold px-2.5 py-1 rounded-lg flex items-center gap-1">
-                  <Star className="h-3 w-3 fill-booking-amber text-booking-amber" />{stay.rating}
-                </span>
               </div>
-              <div className="p-5">
-                <p className="text-xs text-white/50 flex items-center gap-1"><MapPin className="h-3.5 w-3.5 text-booking-amber" />{stay.city}</p>
-                <h3 className="text-lg font-semibold text-white mt-1 leading-snug group-hover:text-booking-amber transition-colors">{stay.name}</h3>
-                <p className="text-xs text-white/40 mt-1">{stay.ratingLabel} · {stay.ratingCount} reviews</p>
-                <div className="mt-4 flex items-end justify-between">
-                  <p className="text-sm text-white/40">
-                    from <span className="text-2xl font-bold text-booking-amber">${stay.pricePerNight}</span>
-                    <span className="text-xs"> /night</span>
-                  </p>
-                  <span className="px-4 py-2 bg-white text-booking-dark text-sm font-medium rounded-xl flex items-center gap-1 group-hover:bg-booking-amber group-hover:text-white transition-colors">
-                    View <ArrowRight className="h-4 w-4" />
+
+              <div className="p-4">
+                <p className="text-sm text-gray-500 mb-1">{stay.city}</p>
+                <h3 className="text-lg font-bold text-gray-900 flex items-center flex-wrap gap-1 mb-2 leading-snug">
+                  {stay.name}
+                  <div className="flex items-center ml-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-booking-amber text-booking-amber" />
+                    ))}
+                  </div>
+                </h3>
+                
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="bg-booking-blue text-white text-sm font-bold px-2 py-0.5 rounded">
+                    {stay.rating}/10
+                  </span>
+                  <span className="text-sm text-gray-500">
+                    {stay.ratingCount.toLocaleString()} reviews
                   </span>
                 </div>
+
+                <div className="mt-4 flex items-end justify-between">
+                  <p className="text-lg font-bold text-gray-900">
+                    From ${stay.pricePerNight}
+                  </p>
+                </div>
               </div>
-            </button>
+            </div>
           ))}
         </div>
+      </div>
       </div>
     </div>
   );

@@ -87,13 +87,13 @@ export default function Footer({ onNavigate = () => {} }: FooterProps) {
       {/* Bottom Bar */}
       <div className="bg-booking-dark/60 py-8 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2 text-xl font-bold tracking-tight text-white">
-            <span>Booking.com</span>
+          <div className="flex items-center gap-2 text-xl font-bold tracking-tight text-white select-none">
+            <span>MYHITCH JETNREST</span>
             <span className="text-booking-amber font-serif">.</span>
           </div>
 
-          <p className="text-xs text-white/30 text-center md:text-left">
-            © 2026 Booking.com. All rights reserved. Sri Lankan Luxury Travel booking portal.
+          <p className="text-white/40 text-sm">
+            © 2026 MYHITCH JETNREST. All rights reserved. Worldwide Luxury Travel booking portal.
           </p>
 
           <div className="flex items-center gap-4 text-xs text-white/50">

@@ -5,12 +5,14 @@ interface NavbarProps {
   currentView: string;
   onNavigate: (view: string) => void;
   logoText?: string;
+  isLoggedIn?: boolean;
 }
 
 export default function Navbar({
   currentView,
   onNavigate,
-  logoText = "Booking.com"
+  logoText = "MYHITCH JETNREST",
+  isLoggedIn = false
 }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,7 +37,7 @@ export default function Navbar({
     { id: 'attractions', label: 'Attractions', icon: Compass },
   ];
 
-  const hasHeroImage = currentView === 'home' || currentView === 'flights';
+  const hasHeroImage = ['home', 'flights', 'stays', 'cars', 'attractions', 'about'].includes(currentView);
   const shouldBeSolid = isScrolled || !hasHeroImage;
 
   return (
@@ -77,19 +79,30 @@ export default function Navbar({
         </nav>
 
         {/* Actions */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-4">
           <button className="text-white/80 hover:text-white transition-colors" title="Select Language">
             <Globe className="h-5 w-5" />
           </button>
           <span className="text-white/40 text-xs font-semibold tracking-wider">USD</span>
-          
-          <div onClick={() => onNavigate('profile')} className="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-xl cursor-pointer transition-all duration-300">
-            <User className="h-4 w-4 text-booking-amber" />
-            <span className="text-xs font-medium text-white">Alexander</span>
-            <div className="h-6 w-6 rounded-full bg-booking-amber/20 border border-booking-amber/40 flex items-center justify-center text-[10px] text-booking-amber font-bold">
-              A
+
+          {isLoggedIn ? (
+            /* Logged in: show profile */
+            <div onClick={() => onNavigate('profile')} className="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-xl cursor-pointer transition-all duration-300">
+              <User className="h-4 w-4 text-booking-amber" />
+              <span className="text-xs font-medium text-white">Alexander</span>
+              <div className="h-6 w-6 rounded-full bg-booking-amber/20 border border-booking-amber/40 flex items-center justify-center text-[10px] text-booking-amber font-bold">
+                A
+              </div>
             </div>
-          </div>
+          ) : (
+            /* Not logged in: show Sign Up button only */
+            <button
+              onClick={() => onNavigate('signup')}
+              className="text-sm font-semibold bg-booking-amber hover:bg-booking-accent text-white px-5 py-2 rounded-xl transition-all duration-200"
+            >
+              Sign Up
+            </button>
+          )}
         </div>
 
         {/* Mobile menu toggle */}
@@ -103,10 +116,29 @@ export default function Navbar({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-booking-dark border-b border-white/10 py-6 px-6 shadow-luxury flex flex-col gap-6 animate-fadeIn">
-          <div className="flex flex-col gap-4">
+        <div className="md:hidden fixed inset-0 bg-slate-950/85 backdrop-blur-3xl py-6 px-6 flex flex-col gap-6 overflow-y-auto z-[100] animate-fadeIn">
+          {/* Logo Header Row */}
+          <div className="flex items-center justify-between pb-4 border-b border-white/10">
+            <div 
+              onClick={() => { onNavigate('home'); setMobileMenuOpen(false); }} 
+              className="flex items-center gap-2 text-xl font-bold tracking-tight text-white cursor-pointer select-none"
+            >
+              <span>{logoText}</span>
+              <span className="text-booking-amber font-serif">.</span>
+            </div>
+            <button 
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white/60 hover:text-white p-1"
+              aria-label="Close menu"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+
+          <div className="flex flex-col gap-3">
             {navItems.map((item) => {
               const Icon = item.icon;
+              const isActive = currentView === item.id;
               return (
                 <button
                   key={item.id}
@@ -114,9 +146,13 @@ export default function Navbar({
                     onNavigate(item.id);
                     setMobileMenuOpen(false);
                   }}
-                  className="flex items-center gap-3 text-left py-2 text-white/80 hover:text-white text-base font-medium"
+                  className={`flex items-center gap-3 text-left p-3 rounded-xl transition-all duration-200 ${
+                    isActive 
+                      ? 'bg-white/10 text-white border-l-4 border-booking-amber font-semibold shadow-inner' 
+                      : 'text-white/80 hover:text-white hover:bg-white/5'
+                  }`}
                 >
-                  <Icon className="h-5 w-5 text-booking-amber" />
+                  <Icon className={`h-5 w-5 ${isActive ? 'text-booking-amber' : 'text-white/60'}`} />
                   {item.label}
                 </button>
               );
@@ -125,23 +161,35 @@ export default function Navbar({
 
           <hr className="border-white/10" />
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between px-3">
             <div className="flex items-center gap-2 text-white/80">
-              <Globe className="h-5 w-5" />
+              <Globe className="h-5 w-5 text-white/60" />
               <span className="text-sm font-medium">English (US)</span>
             </div>
             <span className="text-sm font-semibold text-booking-amber">USD ($)</span>
           </div>
 
-          <div onClick={() => { onNavigate('profile'); setMobileMenuOpen(false); }} className="flex items-center gap-3 bg-white/5 border border-white/10 p-3 rounded-xl cursor-pointer">
-            <div className="h-8 w-8 rounded-full bg-booking-amber/20 border border-booking-amber/40 flex items-center justify-center text-xs text-booking-amber font-bold">
-              A
+          {isLoggedIn ? (
+            <div 
+              onClick={() => { onNavigate('profile'); setMobileMenuOpen(false); }} 
+              className="flex items-center gap-3 bg-white/5 border border-white/10 hover:bg-white/10 p-3.5 rounded-xl cursor-pointer transition-all"
+            >
+              <div className="h-8 w-8 rounded-full bg-booking-amber/20 border border-booking-amber/40 flex items-center justify-center text-xs text-booking-amber font-bold shrink-0">
+                A
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-medium text-white truncate">Alexander Dubois</p>
+                <p className="text-xs text-white/40 truncate">Loyalty Level: Genius</p>
+              </div>
             </div>
-            <div>
-              <p className="text-sm font-medium text-white">Alexander Dubois</p>
-              <p className="text-xs text-white/40">Loyalty Level: Genius</p>
-            </div>
-          </div>
+          ) : (
+            <button
+              onClick={() => { onNavigate('signup'); setMobileMenuOpen(false); }}
+              className="w-full text-sm font-semibold bg-booking-amber hover:bg-booking-accent text-white py-3 rounded-xl transition-all shadow-md active:scale-[0.98]"
+            >
+              Sign Up
+            </button>
+          )}
         </div>
       )}
     </header>

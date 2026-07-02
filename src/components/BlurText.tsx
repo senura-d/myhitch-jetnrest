@@ -10,33 +10,31 @@ interface BlurTextProps {
 
 export default function BlurText({ 
   text, 
-  duration = 0.75, 
-  delayOffset = 0.035,
+  duration = 0.6, 
+  delayOffset = 0.08,
   className = "" 
 }: BlurTextProps) {
-  // Split text by characters
-  const chars = text.split("");
+  // Split text by words for performance (avoids animating each character)
+  const words = text.split(" ");
 
   return (
     <div 
-      className={`inline-block whitespace-pre-wrap ${className}`} 
-      style={{ perspective: "1000px" }}
+      className={`inline-block whitespace-pre-wrap [perspective:1000px] ${className}`} 
     >
-      {chars.map((char, index) => (
+      {words.map((word, index) => (
         <motion.span
           key={index}
-          initial={{ opacity: 0, filter: "blur(5px)", rotateX: 95, y: 12 }}
-          whileInView={{ opacity: 1, filter: "blur(0px)", rotateX: 0, y: 0 }}
-          viewport={{ once: true, margin: "-10% 0px" }}
+          initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
+          whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          viewport={{ once: true, margin: "-5% 0px" }}
           transition={{
-            ease: [0.22, 1, 0.36, 1], // Custom premium cubic ease-out
+            ease: [0.22, 1, 0.36, 1],
             duration: duration,
             delay: index * delayOffset,
           }}
-          className="inline-block whitespace-pre text-inherit"
-          style={{ transformOrigin: "top center" }}
+          className="inline-block whitespace-pre text-inherit mr-[0.25em] last:mr-0"
         >
-          {char}
+          {word}
         </motion.span>
       ))}
     </div>

@@ -96,11 +96,13 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
       {/* Hero Section — fills exactly one viewport */}
       <div id="home-hero" className="relative min-h-screen">
         <Hero33
-          logoText="Booking.com"
-          primaryActionText="Explore Ceylon Stays"
+          logoText="MYHITCH JETNREST"
+          primaryActionText="Explore World Stays"
           secondaryActionText="Member Privilege Deals"
-          titleLines={["Explore Ceylon.", "Extraordinary", "Luxury Stays."]}
-          backgroundImage="/destinations/sigiriya.jpg"
+          titleLines={["Explore the World.", "Extraordinary", "Luxury Stays."]}
+          backgroundImages={[
+            "/destinations/Viceroy-Bali-Main-Pool-2.avif"
+          ]}
           onExploreClick={() => {
             const element = document.getElementById('home-search');
             element?.scrollIntoView({ behavior: 'smooth' });
@@ -109,9 +111,9 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
       </div>
 
       {/* Section 2: Search + Liquid Glass Features — white backdrop */}
-      <section id="home-search" className="bg-white w-full relative z-10 py-6 md:py-8 overflow-hidden">
-        <TravelDoodles />
-        <div className="max-w-6xl mx-auto px-6 relative">
+      <section id="home-search" className="bg-white w-full relative z-10 py-10 md:py-16 overflow-hidden">
+        
+        <div className="max-w-6xl mx-auto px-6 relative z-10">
 
           {/* Heading */}
           <div className="text-center mb-5">
@@ -166,39 +168,19 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
               return (
                 <div
                   key={card.title}
-                  className="relative overflow-hidden rounded-2xl p-5 flex flex-col gap-3 min-h-[180px] transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
-                  style={{
-                    background: 'rgba(255,255,255,0.45)',
-                    backdropFilter: 'blur(20px) saturate(160%)',
-                    WebkitBackdropFilter: 'blur(20px) saturate(160%)',
-                    border: '1px solid rgba(255,255,255,0.7)',
-                    boxShadow: '0 6px 30px rgba(15,23,42,0.08), inset 0 1px 0 rgba(255,255,255,0.9)',
-                  }}
+                  className="relative rounded-3xl p-7 flex flex-col gap-4 bg-slate-500/10 backdrop-blur-xl border border-slate-400/20 shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-1 hover:bg-slate-500/15"
                 >
-                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white to-transparent rounded-t-3xl" />
-
-                  {/* Top row: icon + tag chip */}
-                  <div className="relative flex items-center justify-between">
-                    <div
-                      className="h-9 w-9 rounded-xl flex items-center justify-center"
-                      style={{ background: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.8)' }}
-                    >
-                      <Icon className="h-5 w-5 text-slate-700" strokeWidth={2} />
-                    </div>
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-blue-700 bg-blue-50/80 border border-blue-100 px-2.5 py-1 rounded-full">
-                      {card.tag}
-                    </span>
+                  <div className="h-12 w-12 rounded-2xl flex items-center justify-center bg-white/60 border border-white/80 shadow-sm">
+                    <Icon className="h-6 w-6 text-slate-700" strokeWidth={1.5} />
                   </div>
-
-                  {/* Title + text */}
-                  <div className="relative">
-                    <h3 className="text-sm font-bold text-black tracking-tight">{card.title}</h3>
-                    <p className="mt-1.5 text-xs leading-relaxed text-slate-600">{card.text}</p>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 tracking-tight">{card.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{card.text}</p>
                   </div>
 
                   {/* Bottom meta row */}
-                  <div className="relative mt-auto pt-3 border-t border-slate-200/60 flex items-center gap-1.5 text-[11px] font-medium text-slate-500">
-                    <MetaIcon className="h-3.5 w-3.5 text-blue-600" />
+                  <div className="relative mt-2 pt-4 border-t border-slate-300/50 flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                    <MetaIcon className="h-4 w-4 text-booking-blue" />
                     {card.meta}
                   </div>
                 </div>
@@ -209,11 +191,11 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
       </section>
       {/* Sunset Liquid Glass Features Section */}
 
-      <div className="relative w-full z-10 overflow-hidden" style={{ minHeight: '520px' }}>
+      <div className="relative w-full z-10 overflow-hidden min-h-[520px]">
         {/* Full-bleed sunset backdrop */}
         <img
           src="/destinations/sunset.jpg"
-          alt="Sri Lanka golden sunset"
+          alt="Golden sunset"
           className="absolute inset-0 w-full h-full object-cover object-center scale-105"
         />
         {/* Dark amber veil for contrast */}
@@ -225,7 +207,7 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
           <div className="text-center mb-14">
             <span className="text-xs font-bold text-amber-300 uppercase tracking-[0.25em]">Why Choose Us</span>
             <h2 className="mt-2 text-3xl md:text-4xl font-serif font-light text-white tracking-wide drop-shadow-xl">
-              The Ceylon Difference
+              The MYHITCH Difference
             </h2>
           </div>
 
@@ -233,23 +215,10 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1 */}
             <div
-              className="group relative rounded-3xl p-7 flex flex-col gap-5 cursor-default transition-all duration-500 hover:-translate-y-1"
-              style={{
-                background: 'rgba(255,255,255,0.08)',
-                backdropFilter: 'blur(24px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-                border: '1px solid rgba(255,255,255,0.22)',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.25)',
-              }}
+              className="group relative rounded-3xl p-7 flex flex-col gap-5 cursor-default transition-all duration-500 hover:-translate-y-1 bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.25)]"
             >
               <div
-                className="h-9 w-9 rounded-xl flex items-center justify-center"
-                style={{
-                  background: 'rgba(255,255,255,0.15)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255,255,255,0.3)',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.4)',
-                }}
+                className="h-9 w-9 rounded-xl flex items-center justify-center bg-white/15 backdrop-blur-xl border border-white/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]"
               >
                 <Award className="h-5 w-5 text-white" />
               </div>
@@ -265,23 +234,10 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
 
             {/* Card 2 */}
             <div
-              className="group relative rounded-3xl p-7 flex flex-col gap-5 cursor-default transition-all duration-500 hover:-translate-y-1"
-              style={{
-                background: 'rgba(255,255,255,0.08)',
-                backdropFilter: 'blur(24px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-                border: '1px solid rgba(255,255,255,0.22)',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.25)',
-              }}
+              className="group relative rounded-3xl p-7 flex flex-col gap-5 cursor-default transition-all duration-500 hover:-translate-y-1 bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.25)]"
             >
               <div
-                className="h-9 w-9 rounded-xl flex items-center justify-center"
-                style={{
-                  background: 'rgba(255,255,255,0.15)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255,255,255,0.3)',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.4)',
-                }}
+                className="h-9 w-9 rounded-xl flex items-center justify-center bg-white/15 backdrop-blur-xl border border-white/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]"
               >
                 <ShieldCheck className="h-5 w-5 text-white" />
               </div>
@@ -296,23 +252,10 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
 
             {/* Card 3 */}
             <div
-              className="group relative rounded-3xl p-7 flex flex-col gap-5 cursor-default transition-all duration-500 hover:-translate-y-1"
-              style={{
-                background: 'rgba(255,255,255,0.08)',
-                backdropFilter: 'blur(24px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-                border: '1px solid rgba(255,255,255,0.22)',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.25)',
-              }}
+              className="group relative rounded-3xl p-7 flex flex-col gap-5 cursor-default transition-all duration-500 hover:-translate-y-1 bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.18),inset_0_1px_0_rgba(255,255,255,0.25)]"
             >
               <div
-                className="h-9 w-9 rounded-xl flex items-center justify-center"
-                style={{
-                  background: 'rgba(255,255,255,0.15)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255,255,255,0.3)',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.4)',
-                }}
+                className="h-9 w-9 rounded-xl flex items-center justify-center bg-white/15 backdrop-blur-xl border border-white/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)]"
               >
                 <Compass className="h-5 w-5 text-white" />
               </div>
@@ -335,18 +278,18 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
       </div>
 
       {/* Section 3: Cinematic Image Reveal — blends white carousel into landscape */}
-      <div id="home-landscape" className="relative w-full z-10" style={{ height: '85vh', minHeight: '520px' }}>
+      <div id="home-landscape" className="relative w-full z-10 h-[85vh] min-h-[520px]">
         {/* Full-bleed image */}
         <img
           src="/destinations/sb-bandara-1GJKxIkSR0E-unsplash.jpg"
-          alt="Elephants bathing in the Maha Oya river, Pinnawala, Sri Lanka"
+          alt="Elephants bathing in the river"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
 
 
         {/* Editorial caption */}
         <div className="absolute inset-x-0 bottom-12 z-20 flex flex-col items-center text-center px-6 pointer-events-none">
-          <span className="text-[10px] font-bold text-white/60 uppercase tracking-[0.25em] mb-3">Sri Lanka · Pinnawala</span>
+          <span className="text-[10px] font-bold text-white/60 uppercase tracking-[0.25em] mb-3">Thailand · Chiang Mai</span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-light text-white leading-tight tracking-wide max-w-2xl drop-shadow-xl">
             Where Wildlife Meets Wonder
           </h2>
@@ -395,8 +338,6 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
                       <Star className="h-3.5 w-3.5 fill-booking-amber text-booking-amber" />
                       {dest.tag}
                     </div>
-                    <CutoutCorner className="absolute -left-8 top-0 text-white" />
-                    <CutoutCorner className="absolute right-0 -bottom-8 text-white" />
                   </CutoutCardPin>
 
                   {/* Hover reveal action button */}
@@ -429,7 +370,7 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
         {/* Backdrop image */}
         <img
           src="/destinations/sebastian-latorre-VqPOeYqzK-M-unsplash.jpg"
-          alt="Sri Lanka highland tea estate"
+          alt="Highland tea estate"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
@@ -462,8 +403,6 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
                   {/* Bottom-left inset discount label with cutout corners */}
                   <CutoutCardInsetLabel className="bottom-0 left-0 rounded-tr-2xl bg-white/20 backdrop-blur-md border-t border-r border-white/30 px-4 py-2">
                     <span className="text-sm font-bold text-white">{deal.discount}</span>
-                    <CutoutCorner className="absolute -top-8 left-0 text-white/20" />
-                    <CutoutCorner className="absolute bottom-0 -right-8 rotate-90 text-white/20" />
                   </CutoutCardInsetLabel>
 
                   {/* Hover reveal action */}
@@ -496,25 +435,25 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
           <div>
             <span className="text-xs font-bold text-booking-blue uppercase tracking-widest">Explore By Region</span>
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mt-2 text-black font-serif leading-tight">
-              Discover Sri Lanka
+              Discover the World
             </h2>
             <p className="mt-4 text-sm text-booking-muted leading-relaxed max-w-md">
-              From the golden beaches of the south to the misty tea hills of the central highlands and the
-              ancient cities of the cultural triangle — explore handpicked luxury stays across all 25 districts.
+              From sun-soaked beaches and alpine retreats to vibrant cities and ancient wonders — explore
+              handpicked luxury stays across every continent, all in one place.
             </p>
             <ul className="mt-6 space-y-2 text-sm text-booking-dark">
-              <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-booking-blue" /> 25 districts, 9 provinces</li>
+              <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-booking-blue" /> 190+ countries worldwide</li>
               <li className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-booking-blue" /> Verified luxury properties</li>
-              <li className="flex items-center gap-2"><Star className="h-4 w-4 text-booking-blue" /> Coast, hills & heritage escapes</li>
+              <li className="flex items-center gap-2"><Star className="h-4 w-4 text-booking-blue" /> Beaches, cities & heritage escapes</li>
             </ul>
           </div>
 
           {/* Map image — right (white background blended out) */}
           <div className="flex justify-center md:justify-end">
             <img
-              src="/destinations/large-detailed-tourist-map-of-sri-lanka.jpg"
-              alt="Map of Sri Lanka"
-              className="w-full max-w-[240px] h-auto object-contain mix-blend-multiply"
+              src="/destinations/world-map.png"
+              alt="World Map"
+              className="w-full max-w-md h-auto object-contain mix-blend-multiply"
             />
           </div>
         </div>
@@ -525,7 +464,7 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
         {/* Backdrop image */}
         <img
           src="/destinations/sarmat-batagov-cuZbrYoimv8-unsplash.jpg"
-          alt="Sri Lanka coastline"
+          alt="Tropical coastline"
           className="absolute inset-0 w-full h-full object-cover"
         />
 
@@ -579,83 +518,6 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
         </div>
         </div>
       </section>
-    </div>
-  );
-}
-
-/* Tiled travel-doodle pattern (small scale) covering the full section background */
-function TravelDoodles() {
-  const id = 'travel-doodle';
-  return (
-    <div
-      className="pointer-events-none absolute inset-0 opacity-[0.05]"
-      aria-hidden="true"
-    >
-      <svg width="100%" height="100%" preserveAspectRatio="xMidYMid">
-        <defs>
-          {/* small scale: tile drawn at 200x260, then displayed at 0.6 via patternTransform */}
-          <pattern id={id} width="120" height="156" patternUnits="userSpaceOnUse" patternTransform="scale(0.6)">
-            <g fill="none" stroke="#0f172a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-              {/* Airplane */}
-              <g transform="translate(4,8) rotate(-6)">
-                <path d="M2 16l30-3-5-9 5 1 9 8 9-1c3 0 3 3 0 3l-9-1-9 8-5 1 5-9z" />
-                <path d="M10 14l-4 4M14 15l-3 4" />
-              </g>
-              {/* Compass rose */}
-              <g transform="translate(78,4)">
-                <path d="M10 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z" />
-                <path d="M10 4l1.5 5.5L17 11l-5.5 1.5L10 17l-1.5-4.5L3 11l5.5-1.5z" fill="#0f172a" />
-              </g>
-              {/* Palm tree */}
-              <g transform="translate(8,44)">
-                <path d="M12 38V14" />
-                <path d="M12 14C12 6 5 2 0 4M12 14C12 6 19 2 24 4M12 14C7 8 2 9 0 14M12 14c5-6 10-5 12 0M12 14C12 7 9 3 6 1M12 14c0-7 3-11 6-13" />
-              </g>
-              {/* Cloud */}
-              <g transform="translate(72,52)">
-                <path d="M4 14c-3 0-4-2-4-4s2-4 4-3c0-3 4-5 7-3 2-2 6-1 6 2 3 0 4 3 2 5z" />
-              </g>
-              {/* X mark */}
-              <path d="M54 40l7 7M61 40l-7 7" strokeWidth="2.2" />
-              {/* Star */}
-              <path d="M44 86l1.6 3.6 3.9.3-3 2.6.9 3.8-3.4-2-3.4 2 .9-3.8-3-2.6 3.9-.3z" />
-              {/* Suitcase */}
-              <g transform="translate(6,92) rotate(4)">
-                <rect x="0" y="6" width="26" height="30" rx="3" />
-                <path d="M9 6V2h8v4" />
-                <path d="M0 16h26" />
-                <path d="M16 22l4 4-4 4-4-4z" />
-              </g>
-              {/* Smiley sun */}
-              <g transform="translate(78,96)">
-                <circle cx="11" cy="11" r="6" />
-                <path d="M11 0v3M11 19v3M0 11h3M19 11h3M3 3l2 2M17 17l2 2M19 3l-2 2M3 19l2-2" />
-                <path d="M9 10v1M13 10v1M9 13c1 1 3 1 4 0" />
-              </g>
-              {/* Location pin */}
-              <g transform="translate(54,118)">
-                <path d="M6 0a6 6 0 0 1 6 6c0 5-6 12-6 12S0 11 0 6a6 6 0 0 1 6-6z" />
-                <circle cx="6" cy="6" r="2.2" />
-              </g>
-              {/* Ticket */}
-              <g transform="translate(2,134) rotate(-4)">
-                <path d="M0 4a2 2 0 0 1 2-2h34a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4z" />
-                <text x="8" y="13" fill="#0f172a" stroke="none" fontFamily="'Comic Sans MS',cursive" fontSize="6" fontWeight="700">TICKET</text>
-              </g>
-              {/* Phone */}
-              <g transform="translate(90,128) rotate(8)">
-                <rect x="0" y="0" width="14" height="26" rx="3" />
-                <circle cx="7" cy="22" r="1.1" fill="#0f172a" />
-              </g>
-              {/* Dashed route curves */}
-              <path d="M0 30C20 24 30 38 50 32" strokeDasharray="1 5" />
-              <path d="M60 70C80 64 92 80 116 72" strokeDasharray="1 5" />
-              <path d="M0 116C24 110 30 126 48 120" strokeDasharray="1 5" />
-            </g>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill={`url(#${id})`} />
-      </svg>
     </div>
   );
 }

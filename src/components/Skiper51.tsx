@@ -1,14 +1,12 @@
 import React from "react";
-import { Autoplay, EffectCreative, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/effect-creative";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
 import { cn } from "../lib/utils";
 import BlurText from "./BlurText";
-import TravelDoodles from "./TravelDoodles";
 
 const defaultImages = [
   {
@@ -39,19 +37,17 @@ export default function Skiper51({
   images = defaultImages
 }: Skiper51Props) {
   return (
-    <section className="bg-white py-20 w-full overflow-hidden flex flex-col items-center relative z-10">
-      {/* Doodle backdrop */}
-      <TravelDoodles opacity={0.05} uid="travel-doodle-carousel" />
+    <section className="bg-white py-20 w-full overflow-hidden flex flex-col items-center relative z-10 border-t border-slate-200">
 
       {/* Title block */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mb-12 text-center flex flex-col items-center">
-        <span className="text-xs font-bold text-black uppercase tracking-widest">
+        <span className="text-sm font-bold text-blue-600 uppercase tracking-[0.3em]">
           <BlurText text={title} delayOffset={0.03} />
         </span>
-        <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mt-1 text-black font-serif">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mt-3 text-black font-serif uppercase drop-shadow-sm">
           <BlurText text={subtitle} delayOffset={0.02} />
         </h2>
-        <p className="mt-3 text-sm text-booking-muted max-w-lg leading-relaxed">
+        <p className="mt-8 text-xl text-black/50 max-w-2xl leading-relaxed font-light">
           {description}
         </p>
       </div>
@@ -85,34 +81,33 @@ const Carousel_005 = ({
   const css = `
   .Carousal_005 {
     width: 100%;
-    height: 680px;
+    height: 70vh;
+    min-height: 500px;
   }
 
   .Carousal_005 .swiper-slide {
     background-position: center;
     background-size: cover;
-    border-radius: 24px;
   }
   `;
 
   return (
-    <div className={cn("relative w-full max-w-7xl px-4 md:px-8", className)}>
+    <div className={cn("relative w-full", className)}>
       <style>{css}</style>
 
       <div className="w-full relative">
         <Swiper
-          spaceBetween={spaceBetween}
+          spaceBetween={0}
           autoplay={
             autoplay
               ? {
-                  delay: 2500,
+                  delay: 4500,
                   disableOnInteraction: false,
                 }
               : false
           }
-          effect="creative"
           grabCursor={true}
-          slidesPerView="auto"
+          slidesPerView={1}
           centeredSlides={true}
           loop={loop}
           pagination={
@@ -123,27 +118,18 @@ const Carousel_005 = ({
               : false
           }
           className="Carousal_005"
-          creativeEffect={{
-            prev: {
-              shadow: true,
-              translate: [0, 0, -400],
-            },
-            next: {
-              translate: ["100%", 0, 0],
-            },
-          }}
-          modules={[EffectCreative, Pagination, Autoplay]}
+          modules={[Pagination, Autoplay]}
         >
           {images.map((image, index) => (
-            <SwiperSlide key={index} className="relative group overflow-hidden rounded-3xl">
+            <SwiperSlide key={index} className="relative group overflow-hidden">
               <img
-                className="h-full w-full scale-105 rounded-3xl object-cover transition-transform duration-700 group-hover:scale-110"
+                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 src={image.src}
                 alt={image.alt}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-10 pointer-events-none rounded-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 pointer-events-none" />
               
-              <div className="absolute bottom-10 left-8 right-8 z-20 text-left pointer-events-none">
+              <div className="absolute bottom-16 left-6 md:left-12 right-12 z-20 text-left pointer-events-none">
                 <span className="text-[9px] font-bold text-white bg-white/20 border border-white/30 px-3 py-1 rounded-full backdrop-blur-sm uppercase tracking-wider">
                   Signature Destination
                 </span>
