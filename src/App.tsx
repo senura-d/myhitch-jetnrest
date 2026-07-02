@@ -62,8 +62,12 @@ export default function App() {
   // Sync view <-> URL path so each page has its own address
   useEffect(() => {
     const applyPath = () => {
-      const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-      setView(path || 'home');
+      let path = window.location.pathname;
+      if (path.startsWith('/myhitch-jetnrest')) {
+        path = path.slice('/myhitch-jetnrest'.length);
+      }
+      const viewPath = path.replace(/^\/+|\/+$/g, '');
+      setView(viewPath || 'home');
     };
     applyPath();
     window.addEventListener('popstate', applyPath);
@@ -73,7 +77,8 @@ export default function App() {
   // View state controller
   const navigateTo = (newView: string) => {
     setView(newView);
-    const path = newView === 'home' ? '/' : `/${newView}`;
+    const basePath = window.location.pathname.startsWith('/myhitch-jetnrest') ? '/myhitch-jetnrest' : '';
+    const path = newView === 'home' ? `${basePath}/` : `${basePath}/${newView}`;
     if (window.location.pathname !== path) {
       window.history.pushState({ view: newView }, '', path);
     }
