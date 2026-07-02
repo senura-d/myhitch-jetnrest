@@ -60,7 +60,7 @@ export default function Navbar({
           </div>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden md:flex items-center gap-1 bg-white/5 backdrop-blur-md border border-white/10 p-1.5 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.1)]">
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentView === item.id;
@@ -68,13 +68,11 @@ export default function Navbar({
                 <button
                   key={item.id}
                   onClick={() => onNavigate(item.id)}
-                  className={`flex items-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-xl transition-all duration-300 border ${
-                    isActive 
-                      ? 'bg-white/10 text-white border-white/10 shadow-[inset_0_1px_rgba(255,255,255,0.15)] backdrop-blur-md' 
-                      : 'text-white/70 hover:text-white hover:bg-white/5 border-transparent hover:border-white/5'
+                  className={`flex items-center gap-2 text-sm font-medium transition-colors hover:text-white ${
+                    isActive ? 'text-booking-amber border-b-2 border-booking-amber pb-1' : 'text-white/70'
                   }`}
                 >
-                  <Icon className={`h-3.5 w-3.5 ${isActive ? 'text-[#3b82f6]' : 'text-white/70'}`} />
+                  <Icon className="h-4 w-4" />
                   {item.label}
                 </button>
               );
@@ -83,22 +81,17 @@ export default function Navbar({
 
           {/* Actions */}
           <div className="hidden md:flex items-center gap-4">
-            <button 
-              className="text-white/80 hover:text-white p-2.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/25 transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]" 
-              title="Select Language"
-            >
-              <Globe className="h-4 w-4" />
+            <button className="text-white/80 hover:text-white transition-colors" title="Select Language">
+              <Globe className="h-5 w-5" />
             </button>
-            <span className="text-white/70 text-xs font-semibold px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
-              USD
-            </span>
+            <span className="text-white/40 text-xs font-semibold tracking-wider">USD</span>
 
             {isLoggedIn ? (
               /* Logged in: show profile */
-              <div onClick={() => onNavigate('profile')} className="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 rounded-xl cursor-pointer transition-all duration-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
-                <User className="h-4 w-4 text-[#3b82f6]" />
+              <div onClick={() => onNavigate('profile')} className="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-xl cursor-pointer transition-all duration-300">
+                <User className="h-4 w-4 text-booking-amber" />
                 <span className="text-xs font-medium text-white">Alexander</span>
-                <div className="h-6 w-6 rounded-full bg-[#3b82f6]/20 border border-[#3b82f6]/40 flex items-center justify-center text-[10px] text-[#3b82f6] font-bold">
+                <div className="h-6 w-6 rounded-full bg-booking-amber/20 border border-booking-amber/40 flex items-center justify-center text-[10px] text-booking-amber font-bold">
                   A
                 </div>
               </div>
@@ -106,7 +99,7 @@ export default function Navbar({
               /* Not logged in: show Sign Up button only */
               <button
                 onClick={() => onNavigate('signup')}
-                className="text-xs font-semibold bg-[#3b82f6]/80 hover:bg-[#3b82f6] text-white px-5 py-2.5 rounded-xl transition-all border border-white/20 shadow-[0_4px_16px_rgba(59,130,246,0.25),inset_0_1px_0_rgba(255,255,255,0.25)] active:scale-[0.98]"
+                className="text-sm font-semibold bg-booking-amber hover:bg-booking-accent text-white px-5 py-2 rounded-xl transition-all duration-200"
               >
                 Sign Up
               </button>
@@ -116,10 +109,9 @@ export default function Navbar({
           {/* Mobile menu toggle */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white p-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/15 transition-all shadow-[0_4px_12px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.3)] active:scale-95"
-            title="Toggle Menu"
+            className="md:hidden text-white/90 hover:text-white p-1"
           >
-            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </header>
