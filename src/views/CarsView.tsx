@@ -54,31 +54,21 @@ export default function CarsView({ onBackToHome, onRequireAuth }: CarsViewProps)
         </div>
       ) : (
         <>
-          <section id="cars-search" className="relative w-full z-20 py-20 overflow-hidden">
-            {/* Background image backdrop */}
-            <div className="absolute inset-0 z-0 select-none pointer-events-none">
-              <img
-                src="/destinations/scenic_road_backdrop.png"
-                alt="Scenic road backdrop"
-                className="w-full h-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-[#001122]/30 backdrop-blur-[2px]" />
-            </div>
-
-            <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10">
+          <section id="cars-search" className="bg-white w-full relative z-20 py-16 md:py-20">
+            <div className="max-w-5xl mx-auto px-6 md:px-12">
               <div className="text-center mb-8">
-                <span className="inline-block text-[11px] font-extrabold text-[#3b82f6] uppercase tracking-[0.3em] mb-3">Plan Your Trip</span>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-white tracking-tight leading-tight drop-shadow-md">Find Your Perfect Ride</h2>
-                <div className="mt-4 mx-auto w-14 h-0.5 bg-[#3b82f6] rounded-full" />
+                <span className="inline-block text-[11px] font-extrabold text-blue-600 uppercase tracking-[0.3em] mb-3">Plan Your Trip</span>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 tracking-tight leading-tight">Find Your Perfect Ride</h2>
+                <div className="mt-4 mx-auto w-14 h-0.5 bg-blue-400 rounded-full" />
               </div>
               {/* Search */}
-              <div className="bg-white/70 backdrop-blur-2xl border border-white/40 rounded-[2rem] p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.4)] grid grid-cols-1 lg:grid-cols-12 md:grid-cols-12 gap-3 animate-fadeIn">
+              <div className="bg-slate-50/50 backdrop-blur-2xl border border-slate-200/80 rounded-[2rem] p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.8)] grid grid-cols-1 lg:grid-cols-12 md:grid-cols-12 gap-3 animate-fadeIn">
                 <div className="md:col-span-12 lg:col-span-3"><Field icon={MapPin} label="Pick-up location" placeholder="Bandaranaike Airport (CMB)" /></div>
                 <div className="md:col-span-4 lg:col-span-3"><Field icon={Calendar} label="Pick-up date" placeholder="Jul 12, 2026 · 10:00" /></div>
                 <div className="md:col-span-4 lg:col-span-3"><Field icon={Calendar} label="Drop-off date" placeholder="Jul 19, 2026 · 10:00" /></div>
                 <div className="md:col-span-2 lg:col-span-2"><Field icon={Users} label="Drivers" placeholder="1" /></div>
                 <div className="md:col-span-2 lg:col-span-1 flex items-end">
-                  <button aria-label="Search" className="w-full h-[58px] bg-booking-blue hover:bg-blue-700 text-white rounded-xl flex items-center justify-center transition-all border border-white/10 shadow-[0_4px_12px_rgba(0,53,128,0.25),inset_0_1px_0_rgba(255,255,255,0.2)] active:scale-95">
+                  <button aria-label="Search" className="w-full h-[58px] bg-booking-blue hover:bg-blue-700 text-white rounded-xl flex items-center justify-center transition-all active:scale-95">
                     <Search className="h-5 w-5" />
                   </button>
                 </div>
