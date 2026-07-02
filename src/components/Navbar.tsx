@@ -16,6 +16,22 @@ export default function Navbar({
 }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState('English (US)');
+  const [currentCurrency, setCurrentCurrency] = useState('USD');
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+  const [currDropdownOpen, setCurrDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.dropdown-container')) {
+        setLangDropdownOpen(false);
+        setCurrDropdownOpen(false);
+      }
+    };
+    document.addEventListener('click', handleOutsideClick);
+    return () => document.removeEventListener('click', handleOutsideClick);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,11 +96,76 @@ export default function Navbar({
           </nav>
 
           {/* Actions */}
-          <div className="hidden md:flex items-center gap-4">
-            <button className="text-white/80 hover:text-white transition-colors" title="Select Language">
-              <Globe className="h-5 w-5" />
-            </button>
-            <span className="text-white/40 text-xs font-semibold tracking-wider">USD</span>
+          <div className="hidden md:flex items-center gap-4 relative">
+            {/* Language Selector */}
+            <div className="relative dropdown-container">
+              <button 
+                onClick={() => {
+                  setLangDropdownOpen(!langDropdownOpen);
+                  setCurrDropdownOpen(false);
+                }}
+                className="text-white/80 hover:text-white transition-colors p-2 rounded-xl hover:bg-white/5" 
+                title="Select Language"
+              >
+                <Globe className="h-5 w-5" />
+              </button>
+              
+              {langDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 rounded-xl bg-[#0c0f1d]/90 backdrop-blur-xl border border-white/10 p-2 shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] z-50 flex flex-col gap-1">
+                  {['English (US)', 'Deutsch (DE)', 'Español (ES)', 'Français (FR)', 'Sinhalese (LK)'].map((lang) => (
+                    <button
+                      key={lang}
+                      onClick={() => {
+                        setCurrentLanguage(lang);
+                        setLangDropdownOpen(false);
+                      }}
+                      className={`text-left text-xs font-semibold px-3 py-2 rounded-lg transition-colors ${
+                        currentLanguage === lang 
+                          ? 'bg-white/15 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' 
+                          : 'text-[#98a2b3] hover:text-white hover:bg-white/5'
+                      }`}
+                    >
+                      {lang}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Currency Selector */}
+            <div className="relative dropdown-container">
+              <button 
+                onClick={() => {
+                  setCurrDropdownOpen(!currDropdownOpen);
+                  setLangDropdownOpen(false);
+                }}
+                className="text-white/70 hover:text-white transition-colors text-xs font-bold tracking-wider px-2 py-1 rounded-lg hover:bg-white/5"
+                title="Select Currency"
+              >
+                {currentCurrency}
+              </button>
+
+              {currDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-40 rounded-xl bg-[#0c0f1d]/90 backdrop-blur-xl border border-white/10 p-2 shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)] z-50 flex flex-col gap-1">
+                  {['USD ($)', 'EUR (€)', 'GBP (£)', 'LKR (Rs)', 'JPY (¥)'].map((curr) => (
+                    <button
+                      key={curr}
+                      onClick={() => {
+                        setCurrentCurrency(curr.split(' ')[0]);
+                        setCurrDropdownOpen(false);
+                      }}
+                      className={`text-left text-xs font-semibold px-3 py-2 rounded-lg transition-colors ${
+                        currentCurrency === curr.split(' ')[0]
+                          ? 'bg-white/15 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]' 
+                          : 'text-[#98a2b3] hover:text-white hover:bg-white/5'
+                      }`}
+                    >
+                      {curr}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {isLoggedIn ? (
               /* Logged in: show profile */
@@ -169,9 +250,15 @@ export default function Navbar({
           <div className="flex items-center justify-between px-4 py-1">
             <div className="flex items-center gap-3 text-[#98a2b3]">
               <Globe className="h-5 w-5 text-[#8895a7]" />
-              <span className="text-sm font-medium">English (US)</span>
+              <span className="text-sm font-medium">{currentLanguage}</span>
             </div>
-            <span className="text-sm font-semibold text-white/80">USD ($)</span>
+            <span className="text-sm font-semibold text-white/80">
+              {currentCurrency === 'USD' ? 'USD ($)' : 
+               currentCurrency === 'EUR' ? 'EUR (€)' :
+               currentCurrency === 'GBP' ? 'GBP (£)' :
+               currentCurrency === 'LKR' ? 'LKR (Rs)' :
+               currentCurrency === 'JPY' ? 'JPY (¥)' : `${currentCurrency}`}
+            </span>
           </div>
 
           {isLoggedIn ? (
