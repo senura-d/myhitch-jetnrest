@@ -69,10 +69,13 @@ export default function Navbar({
           {/* Logo */}
           <div 
             onClick={() => onNavigate('home')} 
-            className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white cursor-pointer select-none"
+            className="flex items-center cursor-pointer select-none"
           >
-            <span>{logoText}</span>
-            <span className="text-booking-amber font-serif">.</span>
+            <img 
+              src="/myhitch-jetnrest/destinations/11.png" 
+              alt="MYHitch JetnRest Logo" 
+              className="h-9 w-auto object-contain" 
+            />
           </div>
 
           {/* Desktop Nav Items */}
@@ -204,10 +207,13 @@ export default function Navbar({
           <div className="flex items-center justify-between pb-5 border-b border-white/10">
             <div 
               onClick={() => { onNavigate('home'); setMobileMenuOpen(false); }} 
-              className="flex items-center gap-2 text-xl font-bold tracking-tight text-white cursor-pointer select-none"
+              className="flex items-center cursor-pointer select-none"
             >
-              <span>{logoText}</span>
-              <span className="text-[#3b82f6] font-serif">.</span>
+              <img 
+                src="/myhitch-jetnrest/destinations/11.png" 
+                alt="MYHitch JetnRest Logo" 
+                className="h-8 w-auto object-contain" 
+              />
             </div>
             <button 
               onClick={() => setMobileMenuOpen(false)}

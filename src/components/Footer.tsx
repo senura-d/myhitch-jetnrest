@@ -87,9 +87,12 @@ export default function Footer({ onNavigate = () => {} }: FooterProps) {
       {/* Bottom Bar */}
       <div className="bg-booking-dark/60 py-8 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2 text-xl font-bold tracking-tight text-white select-none">
-            <span>MYHITCH JETNREST</span>
-            <span className="text-booking-amber font-serif">.</span>
+          <div className="flex items-center cursor-pointer select-none">
+            <img 
+              src="/myhitch-jetnrest/destinations/11.png" 
+              alt="MYHitch JetnRest Logo" 
+              className="h-8 w-auto object-contain" 
+            />
           </div>
 
           <p className="text-white/40 text-sm">
