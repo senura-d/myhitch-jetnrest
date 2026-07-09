@@ -53,7 +53,7 @@ export default function StaysView({ stays, onSearch, onSelectStay, onBackToHome 
             description: 'Prime spots across\nthe globe',
           },
         ]}
-        backgroundImage="/myhitch-jetnrest/destinations/manuel-moreno-DGa0LQ0yDPc-unsplash.jpg"
+        backgroundImage="/myhitch-jetnrest/destinations/nancy-karels-OQ6GrsHtvu0-unsplash.jpg"
         onExploreClick={() => {
           const element = document.getElementById('stays-search');
           element?.scrollIntoView({ behavior: 'smooth' });
