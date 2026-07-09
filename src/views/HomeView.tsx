@@ -454,6 +454,8 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
               src="/myhitch-jetnrest/destinations/world-map.png"
               alt="World Map"
               className="w-full max-w-md h-auto object-contain mix-blend-multiply"
+              width={448}
+              height={252}
             />
           </div>
         </div>

@@ -75,6 +75,8 @@ export default function Navbar({
               src="/myhitch-jetnrest/destinations/11.png" 
               alt="MYHitch JetnRest Logo" 
               className="h-12 w-auto object-contain" 
+              width={142}
+              height={48}
             />
           </div>
 
@@ -229,6 +231,8 @@ export default function Navbar({
                 src="/myhitch-jetnrest/destinations/11.png" 
                 alt="MYHitch JetnRest Logo" 
                 className="h-10 w-auto object-contain" 
+                width={118}
+                height={40}
               />
             </div>
             <button 
