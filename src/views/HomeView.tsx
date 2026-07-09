@@ -101,7 +101,7 @@ export default function HomeView({ onSearch, onSelectStay, stays }: HomeViewProp
           secondaryActionText="Member Privilege Deals"
           titleLines={["Explore the World.", "Extraordinary", "Luxury Stays."]}
           backgroundImages={[
-            "/myhitch-jetnrest/destinations/Viceroy-Bali-Main-Pool-2.avif"
+            "/myhitch-jetnrest/destinations/mateo-giraud-wtBex4wQw60-unsplash.jpg"
           ]}
           onExploreClick={() => {
             const element = document.getElementById('home-search');
