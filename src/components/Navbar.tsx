@@ -61,8 +61,8 @@ export default function Navbar({
       <header 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           shouldBeSolid
-            ? 'bg-booking-navy/95 backdrop-blur-md border-b border-white/10 py-4 shadow-premium' 
-            : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent py-6 pb-12'
+            ? 'bg-booking-navy/75 backdrop-blur-md border-b border-white/10 py-4 shadow-premium' 
+            : 'bg-transparent py-6 pb-12'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -74,7 +74,7 @@ export default function Navbar({
             <img 
               src="/myhitch-jetnrest/destinations/11.png" 
               alt="MYHitch JetnRest Logo" 
-              className="h-9 w-auto object-contain" 
+              className="h-12 w-auto object-contain" 
             />
           </div>
 
@@ -228,7 +228,7 @@ export default function Navbar({
               <img 
                 src="/myhitch-jetnrest/destinations/11.png" 
                 alt="MYHitch JetnRest Logo" 
-                className="h-8 w-auto object-contain" 
+                className="h-10 w-auto object-contain" 
               />
             </div>
             <button 
