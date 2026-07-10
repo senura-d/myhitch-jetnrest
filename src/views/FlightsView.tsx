@@ -18,7 +18,7 @@ export default function FlightsView({ onSearch, onBackToHome }: FlightsViewProps
       {/* Hero Section — full-bleed backdrop */}
       <section className="relative min-h-screen flex overflow-hidden">
         <img
-          src="/myhitch-jetnrest/destinations/raphael-joly-tFZDt4a1SOE-unsplash.jpg"
+          src="/myhitch-jetnrest/destinations/airplane-over-tropical-coastline-travel-scenic.jpg"
           alt="Airplane over tropical coastline"
           className="absolute inset-0 w-full h-full object-cover"
         />
